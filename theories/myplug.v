@@ -21,7 +21,12 @@ Admitted.
 Detect (fun (x: nat) => x).
 Detect (fun (x: nat) => 3).
 Detect (fun (x: nat) => (fun y => y) x).
-Detect (fun (x: nat) => foo x).
+ReduceAwayLamVar red := (fun (x: nat) => (fun y => y) x).
+Print red.
+
+ReduceAwayLamVar red2 := (fun (x: nat) => foo x).
+Print red2.
+
 Detect (fun (x: nat) => (fun y => Some y) x).
 Detect (fun (x: nat) => id x).
 Detect (fun (x : nat) => (fun y => 3) x). 
